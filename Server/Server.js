@@ -69,11 +69,18 @@ app.get("/", (req, res) => {
 });
 
 app.get("/home", async (req, res) => {
-  res.render(path.join(__dirname, "../view/sample.ejs"), {
+  res.render(path.join(__dirname, "../view/home.ejs"), {
     HelloText: "Hello World", //type <%= HelloText %> in html to render it in
   });
+app.get("/rules", (req, res) => {
+  res.render("rules"); // Make sure view/rules.ejs exists
+});
 
-  delete require.cache[require.resolve("../view/sample.ejs")];
+app.get("/requests", (req, res) => {
+  res.render("requests"); // Make sure view/requests.ejs exists
+});
+
+//  delete require.cache[require.resolve("../view/home.ejs")];
 });
 
 app.post("/api/post", async (req, res) => {
